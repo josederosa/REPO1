@@ -1,0 +1,15 @@
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\bin\Debug\net6.0\LinQBasics.exe
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\bin\Debug\net6.0\LinQBasics.deps.json
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\bin\Debug\net6.0\LinQBasics.runtimeconfig.json
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\bin\Debug\net6.0\LinQBasics.dll
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\bin\Debug\net6.0\LinQBasics.pdb
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\obj\Debug\net6.0\LinQBasics.csproj.AssemblyReference.cache
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\obj\Debug\net6.0\LinQBasics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\obj\Debug\net6.0\LinQBasics.AssemblyInfoInputs.cache
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\obj\Debug\net6.0\LinQBasics.AssemblyInfo.cs
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\obj\Debug\net6.0\LinQBasics.csproj.CoreCompileInputs.cache
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\obj\Debug\net6.0\LinQBasics.dll
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\obj\Debug\net6.0\refint\LinQBasics.dll
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\obj\Debug\net6.0\LinQBasics.pdb
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\obj\Debug\net6.0\LinQBasics.genruntimeconfig.cache
+C:\Users\josed\Documents\_PARA_BACKUP\z_VISUAL_STUDIO\LinQBasics\LinQBasics\obj\Debug\net6.0\ref\LinQBasics.dll
