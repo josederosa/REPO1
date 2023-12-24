@@ -1,0 +1,19 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AdoNetApp/.vs/AdoNetApp/config/applicationhost.config
+/AdoNetApp/.vs/AdoNetApp/DesignTimeBuild/.dtbcache.v2
+/AdoNetApp/.vs/AdoNetApp/FileContentIndex/567d9e0a-bc4b-4253-992f-c38e0e188f45.vsidx
+/AdoNetApp/.vs/AdoNetApp/v17/.suo
+/AdoNetApp/AdoNetApp/bin/Debug/net6.0/AdoNetApp.dll
+/AdoNetApp/AdoNetApp/bin/Debug/net6.0/AdoNetApp.exe
+/AdoNetApp/AdoNetApp/bin/Debug/net6.0/AdoNetApp.pdb
+/AdoNetApp/AdoNetApp/obj/Debug/net6.0/ref/AdoNetApp.dll
+/AdoNetApp/AdoNetApp/obj/Debug/net6.0/refint/AdoNetApp.dll
+/AdoNetApp/AdoNetApp/obj/Debug/net6.0/AdoNetApp.AssemblyInfo.cs
+/AdoNetApp/AdoNetApp/obj/Debug/net6.0/AdoNetApp.AssemblyInfoInputs.cache
+/AdoNetApp/AdoNetApp/obj/Debug/net6.0/AdoNetApp.dll
+/AdoNetApp/AdoNetApp/obj/Debug/net6.0/AdoNetApp.pdb
+/AdoNetApp/AdoNetApp/obj/Debug/net6.0/AdoNetApp.sourcelink.json
+/AdoNetApp/AdoNetApp/obj/Debug/net6.0/apphost.exe
