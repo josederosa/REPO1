@@ -1,0 +1,46 @@
+﻿h1 {
+    background: LightSteelBlue;
+    color: RoyalBlue;
+    font-weight: bold;
+    padding: 15px;
+    border: 4px solid SteelBlue;
+    border-radius: 6px;
+}
+
+body {
+    background: LightGray
+}
+/* Lo siguiente es lo que está en BAS.CSS de BasPadrones
+*/
+.bas-sort-icon {
+    font-size: small;
+    color: #cf0a2c;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    visibility: hidden;
+}
+
+.bas-sortable:hover > .bas-sort-icon {
+    visibility: visible;
+}
+
+.bas-link-icon {
+    background-color: inherit;
+    color: #cf0a2c;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.bas-sort-icon:hover, .bas-link-icon:hover {
+    color: #af000c;
+    cursor: pointer;
+}
+
+.bas-btn {
+    background-color: inherit;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}

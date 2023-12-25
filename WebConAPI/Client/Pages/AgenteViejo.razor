@@ -1,0 +1,89 @@
+﻿@page "/Agente"
+@using System.Net
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using System.Web
+@using System.IO
+@using System.Text
+@using System.Net.Http.Headers
+@using WebConAPI.Client
+@inject TokenAdmin tokenAdmin
+@inject HttpClient _client
+
+<PageTitle>Agente</PageTitle>
+
+<h1>Agente</h1>
+<p>
+ <label>Codigo </label> 
+  <div class="input with-focus">
+      <input @bind=_codigo maxlength="50" class="form-control" />
+  </div>
+ </p>
+ <p>
+</p>
+<button class="btn btn-primary" @onclick="GetAgente"  >Get</button>
+<button class="btn btn-primary" >Post</button>
+<button class="btn btn-primary" >Put</button>
+<button class="btn btn-primary" >Delete</button>
+
+<p>
+</p>
+
+<p>
+ <label>Respuesta </label>
+  <div>
+  @*Cols y rows me sirven para especificar el ancho y el alto*@
+  <textarea id="cp_respuesta"  @bind=_respuesta cols="100" rows="20" > </textarea>
+  </div>
+ </p>
+@code 
+{
+    string? _token;
+    string _codigo;
+    string _respuesta;
+ 
+    async Task GetAgente()
+    {
+        _token = await TokenAdmin.Get();
+
+        if (_token is null)
+        {
+            _respuesta = "Error al obtener el token";
+        }
+        else
+        {
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
+            //Solicitud todos los Agentes  https://intranet.bas.com.ar/bascsapiv02/api/agente?Version=2
+            //Solicitud Agente 10          https://intranet.bas.com.ar/bascsapiv02/api/agente?Codigo=10&?Version=2
+
+            string url = "api/agente?";
+
+            if (_codigo == "")
+            {
+                url = url + "Version=2";
+            }
+            else
+            {
+                url = url + "Codigo=" + _codigo + "&?Version=2";
+            }
+
+            var _response = await _client.GetAsync(url);
+            if (_response.IsSuccessStatusCode)
+            {
+                var _responseText = await _response.Content.ReadAsStringAsync();
+
+                var _jsonElement = JsonSerializer.Deserialize<JsonElement>(_responseText);
+                _responseText = JsonSerializer.Serialize(_jsonElement, new JsonSerializerOptions { WriteIndented = true });
+
+                _respuesta = _responseText;
+            }
+            else
+            {
+                _respuesta = "Error al obtener el agente";
+            }
+        }
+
+    }
+
+}

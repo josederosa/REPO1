@@ -1,0 +1,193 @@
+﻿@page "/AgenteDetalles/{paramCodigo}/{paramCRUD}"
+@using System.Text.Json
+@using System.Net.Http.Headers
+@using WebConAPI.Shared
+@using System.Globalization
+@inject NavigationManager NavManager
+@inject HttpClient Http
+@inject HttpClient _client
+@using System.Linq
+<head>
+    <link href="css/TallerBAS.css" rel="stylesheet" />
+</head>
+
+<body>
+    @if (_nuevo)
+    {
+         <h1>Alta de un agente</h1>
+    }
+    else
+    {
+        if (_consulta)
+           {
+                <h1>Detalles del agente</h1>
+           }
+        else 
+           {
+                <h1>Modificación del agente</h1>
+           }
+    }
+
+
+    <div style="margin-top: 1em" >
+        <div style=" display:flex; justify-content: space-between" >
+            <label >Codigo </label> 
+           <input Id="Codigo" type="text" disabled=@(!_nuevo) @bind=@_agente.Codigo style="Width: 80%" />
+        </div>
+        <div style=" display:flex; justify-content: space-between" >
+            <label >Nombre </label> 
+           <input Id="Codigo" type="text" disabled=@(_consulta) @bind=@_agente.Nombre style="Width: 80%" />
+         
+       </div>
+        <div style=" display:flex; justify-content: space-between" >
+            <label >Email </label> 
+           <input Id="Codigo" type="text" disabled=@(_consulta) @bind=@_agente.Email style="Width: 80%" />
+        </div>
+
+                
+         <table class="table table-responsive">
+            <tbody style="border: hidden">                   
+                 <tr style="border: hidden">
+                    <td><label>Vendedor</label><input type="checkbox" disabled=@(_consulta) @bind="@_agente.EsVendedorBool"  style="Width: 15%"  /></td>
+                    <td><label>Cobrador</label><input type="checkbox" disabled=@(_consulta)  @bind="@(_agente.EsCobradorBool)" style="Width: 15%" /></td>
+                    <td><label>Comprador</label><input type="checkbox" disabled=@(_consulta)  @bind="@(_agente.EsCompradorBool)" style="Width: 15%" /></td>
+                  </tr>  
+                 
+                  <tr style="border: hidden">
+                    <td><label>Rendicion de gastos</label><input type="checkbox" disabled=@(_consulta)  @bind="@(_agente.EsRendicionGastosBool)" style="Width: 15%" /> </td>
+                     <td><label>Transportista</label><input type="checkbox" disabled=@(_consulta)  @bind="@(_agente.EsTransportistaBool)" style="Width: 15%" /> </td>
+                    <td><label>Despachante de aduanas</label><input type="checkbox" disabled=@(_consulta)  @bind="@(_agente.EsDespachanteAduanaBool)" style="Width: 15%" /></td>
+       
+                  </tr>
+                  <tr style="border: hidden">
+                    <td><label>Destino de materiales</label><input type="checkbox" disabled=@(_consulta)  @bind="@(_agente.EsDestinoMaterialesBool)" style="Width: 15%" /></td>
+                    <td><label>Conductor repartidor</label> <input type="checkbox" disabled=@(_consulta)  @bind="@(_agente.EsConductorRepartidorBool)" style="Width: 15%"  /></td>
+                    <td><label>Preventista</label><input type="checkbox" disabled=@(_consulta)  @bind="@(_agente.EsPreventistaBool)" style="Width: 15%" /></td>          
+                  </tr>
+            </tbody>
+
+         </table>
+         
+    </div>
+    
+    
+  
+</body>
+
+
+<footer>
+    <br />
+    <div class="float-left " >
+        @if (_nuevo)
+        {
+            <button type="button" class="btn btn-success" @onclick="()=>AddAgente()">Nuevo</button>
+        }
+        else
+       {
+            <button type="button" class="btn btn-success" @onclick="()=>UpdateAgente()">Actualizar</button>
+        }
+        <div style="display:inline-block"></div>
+
+        <a href="Agentes" class="btn btn-primary">Cerrar</a>
+    </div>
+</footer>
+
+@code 
+{
+    [Parameter]
+    public string paramCodigo { get; set; } 
+
+    [Parameter]
+    public string paramCRUD { get; set; } 
+
+
+
+    private Apis.AgentesWA? _agentesdet;
+
+    //private int _indice=0;
+    //private string _consulta="S";
+    private bool _consulta;
+    private bool _nuevo;    
+    string? _token;
+    private WebConAPI.Shared.Agente  _agente;
+
+    protected override async Task OnInitializedAsync()
+    {       
+
+
+        switch (paramCRUD)
+        {
+            case "U": _nuevo=_consulta = false; break;
+            case "C": _nuevo = true; _consulta = false; break;
+            case "R": _nuevo = false; _consulta = true; break;
+        }
+
+        if  (!_nuevo)
+        {
+            //_agentesdet = await Apis.GetAgentes();
+
+            //for (var i = 0; i < _agentesdet.Agentes.Count; i++)
+            //{
+            //    _indice = i;
+            //    if (_agentesdet.Agentes[i].Codigo == paramCodigo)
+            //    {
+            //        break;
+            //    }
+
+            //}
+
+            _agente = (await Apis.GetAgentes()).Agentes.FirstOrDefault(a => a.Codigo == paramCodigo);
+
+
+        }
+        else
+        {
+            _agente = new();
+
+
+        }
+    }
+
+
+
+
+    private async void UpdateAgente()
+    {
+        HttpResponseMessage httpResponse;
+
+        _token = await TokenAdmin.Get(); 
+        _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
+        httpResponse = await _client.PutAsJsonAsync($"api/agente/1/1", _agente);
+
+        if (httpResponse.IsSuccessStatusCode)            
+        {                               
+            NavManager.NavigateTo("Agentes");
+        }
+        else
+        {
+            //modalErrorText = ($"No se pudo borrar {httpResponse.StatusCode}");
+        }            
+
+    }
+
+    private async void AddAgente()
+    {
+        HttpResponseMessage httpResponse;
+
+        _token = await TokenAdmin.Get(); 
+        _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
+        httpResponse = await _client.PostAsJsonAsync($"api/agente/1/1", _agente);
+
+        if (httpResponse.IsSuccessStatusCode)            
+        {                               
+            NavManager.NavigateTo("Agentes");
+        }
+        else
+        {
+            //modalErrorText = ($"No se pudo borrar {httpResponse.StatusCode}");
+        }            
+
+    }
+}

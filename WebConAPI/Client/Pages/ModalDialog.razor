@@ -1,0 +1,81 @@
+﻿<div class="modal fade show" id="myModal" style="display:block; visibility: background-color: rgba(10,10,10,.8);" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-center btn-danger" >
+                <h4 class="modal-title  w-100">@Title</h4>
+                <button type="button" class="close" @onclick="@ModalCancel">&times;</button>
+            </div>
+           
+            <div class="modal-body">
+                @((MarkupString)BodyText)
+                <div style="color:red; background-color: slategray">
+                   @ErrorText
+                </div>
+            </div>
+            <div class="modal-footer">
+                @switch (DialogType)
+                {
+                    case ModalDialogType.Ok:
+                        <button type="button" class="btn btn-primary" @onclick=@ModalOk>OK</button>
+                        break;
+                    case ModalDialogType.Cancel:
+                        <button type="button" class="btn btn-secondary" @onclick="@ModalCancel">Cerrar</button>
+                        break;
+                    case ModalDialogType.OkCancel:
+                        <button type="button" class="btn btn-primary" @onclick=@ModalOk>OK</button>
+                        <button type="button" class="btn btn-secondary" @onclick="@ModalCancel">Cerrar</button>
+                        break;
+                    case ModalDialogType.DeleteCancel:
+                       @* <button type="button" class="btn btn-danger" @onclick=@ModalOk>Borrar</button>
+                        <button type="button" class="btn btn-secondary" @onclick="@ModalCancel">Cerrar</button>*@
+                        <button type="button" class="btn btn-danger" @onclick=@ModalOk>Si, dale</button>
+                        <button type="button" class="btn btn-secondary" @onclick="@ModalCancel">Mmm, mejor no</button>
+                        break;
+                    case ModalDialogType.DownloadCancel:
+                        <a class="btn btn-danger" href=@ModalDetailsUrl download="ErrorDetails" target="self">Ver detalles</a>
+                        <button type="button" class="btn btn-secondary" @onclick="@ModalCancel">Cerrar</button>
+                        break;                    
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public ModalDialogType DialogType { get; set; }
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string BodyText { get; set; }
+
+    [Parameter]
+    public string ErrorText { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> OnClose { get; set; }
+
+    [Parameter]
+    public string ModalDetailsUrl { get; set; }
+
+    private Task ModalCancel()
+    {
+        return OnClose.InvokeAsync(false);
+    }
+
+    private Task ModalOk()
+    {
+        return OnClose.InvokeAsync(true);
+    }
+
+    public enum ModalDialogType
+    {
+        Ok,
+        Cancel,
+        OkCancel,
+        DeleteCancel,
+        DownloadCancel
+    }
+}
