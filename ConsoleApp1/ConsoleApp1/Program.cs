@@ -15,7 +15,7 @@ Console.ReadLine();
 
 bool func1()
 {
-    Console.WriteLine("func1");
+    Console.WriteLine("func1 ");
 return false;
 }
 bool func2()
