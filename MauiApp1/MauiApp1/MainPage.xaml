@@ -24,7 +24,7 @@
             <Label
                 Text="Welcome to Josis UI App"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to Josis UI App !"
+                SemanticProperties.Description="Welcome to Josis 23 UI App !"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
