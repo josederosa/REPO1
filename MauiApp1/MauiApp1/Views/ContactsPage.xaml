@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.ContactsPage"
+             Title="ContactsPage">
+    <VerticalStackLayout Spacing="5">
+        <Label 
+            Text="Welcome to Contacts Page!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button Text ="Add" x:Name="btnAdd" Clicked="btnAdd_Clicked"  />
+        <Button Text ="Edit" x:Name="btnEdit" Clicked="btnEdit_Clicked"  />
+    </VerticalStackLayout>
+</ContentPage>
