@@ -8,7 +8,7 @@ namespace MauiApp2
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(ContactsPage),typeof(ContactsPage));
-
+            Routing.RegisterRoute(nameof(EditContactPage), typeof(EditContactPage));
         }
     }
 }

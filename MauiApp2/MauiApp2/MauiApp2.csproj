@@ -63,7 +63,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\EditContactPage.xaml.cs">
+	    <DependentUpon>EditContactPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\ContactsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\EditContactPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

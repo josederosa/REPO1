@@ -2,15 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.Views.ContactsPage"
-             Title="ContactsPage">
-    <VerticalStackLayout>
+             Title="Contacts">
+    <VerticalStackLayout BackgroundColor="LightCoral">
         <Label 
             Text="Welcome to Contacts Page!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <ListView x:Name="lvwContacts" 
                   BackgroundColor="LightBlue"
-                  RowHeight="65">
+                  SeparatorColor="Black"
+                  SeparatorVisibility="Default"
+                  RowHeight="65"
+                  ItemTapped="lvwContacts_ItemTapped"
+                  ItemSelected="lvwContacts_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell
@@ -20,7 +24,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-            
-        
     </VerticalStackLayout>
 </ContentPage>
