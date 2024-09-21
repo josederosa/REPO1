@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.Views.EditContactPage"
              Title="EditContact">
-    <VerticalStackLayout>
+    <VerticalStackLayout Spacing="5">
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Edit Contact Page"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button Text="Back" Clicked="Button_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

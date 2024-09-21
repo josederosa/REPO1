@@ -30,11 +30,10 @@ public partial class ContactsPage : ContentPage
     {
 		if (lvwContacts.SelectedItem is not null)
 		{
-            var a = await DisplayAlert("Alerta", "Ud. tocó un listviewitem !", "Ok", "Cancel");
+            var a = await DisplayAlert("Alerta", "Vamos a editar ?", "Ok", "Cancel");
             if (a)
-                DisplayAlert("Alerta", "Tocó OK", "Ok");
-            else
-                DisplayAlert("Alerta", "Tocó Cancel", "Ok");
+                //DisplayAlert("Alerta", "Tocó OK", "Ok");
+				Shell.Current.GoToAsync($"{nameof(EditContactPage)}");
         }
 	}
 }
