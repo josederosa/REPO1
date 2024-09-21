@@ -1,4 +1,5 @@
-using System.ComponentModel.Design;
+using MauiApp2.Models;
+using Contact = MauiApp2.Models.Contact;
 
 namespace MauiApp2.Views;
 
@@ -8,19 +9,9 @@ public partial class ContactsPage : ContentPage
 	{
 		InitializeComponent();
 
-		List<Contact> contactList = new List<Contact>()
-		{new Contact(){Name="Jose",Email="jose@pepe.com"},
-		 new Contact(){Name="Daniel",Email="daneil@pepe.com"}};
-
-		lvwContacts.ItemsSource = contactList;
+		lvwContacts.ItemsSource = ContactsRepository.GetAllContacts();
 	}
-
-	class Contact
-	{
-        public string Name { get; set; }	
-		public string Email{ get; set; }
-    }
-
+	
     private void lvwContacts_ItemTapped(object sender, ItemTappedEventArgs e)
     {
 		lvwContacts.SelectedItem = null;
@@ -30,10 +21,7 @@ public partial class ContactsPage : ContentPage
     {
 		if (lvwContacts.SelectedItem is not null)
 		{
-            var a = await DisplayAlert("Alerta", "Vamos a editar ?", "Ok", "Cancel");
-            if (a)
-                //DisplayAlert("Alerta", "Tocó OK", "Ok");
-				Shell.Current.GoToAsync($"{nameof(EditContactPage)}");
+			Shell.Current.GoToAsync($"{nameof(EditContactPage)}?Id={((Contact)lvwContacts.SelectedItem).Id}");
         }
 	}
 }
