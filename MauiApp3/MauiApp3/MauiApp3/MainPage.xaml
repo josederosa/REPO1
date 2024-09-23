@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.MainPage">
+
+    
+    <!--<StackLayout Spacing="10">
+        <Label Text="Hola Mundo"/>
+        <BoxView BackgroundColor="Blue" HeightRequest="40" WidthRequest="100" HorizontalOptions="Start"/>
+        <BoxView BackgroundColor="Yellow" HeightRequest="40" WidthRequest="100" HorizontalOptions="End"/>
+        <BoxView BackgroundColor="red" HeightRequest="40" WidthRequest="100" HorizontalOptions="Start"/>
+        <BoxView BackgroundColor="Green" HeightRequest="40" WidthRequest="100"/>
+    </StackLayout>-->
+
+    <!--<StackLayout  Orientation="Horizontal" Spacing="10">
+        <BoxView BackgroundColor="Blue" WidthRequest="50" HeightRequest="30" VerticalOptions="Start"/>
+        <BoxView BackgroundColor="Yellow" WidthRequest="50" HeightRequest="30" VerticalOptions="End"/>
+        <BoxView BackgroundColor="red" WidthRequest="50" HeightRequest="30" VerticalOptions="Start"/>
+        <BoxView BackgroundColor="Green"  WidthRequest="50" HeightRequest="30" />
+    </StackLayout>-->
+    <VerticalStackLayout Spacing="10">
+        <Frame>
+            <HorizontalStackLayout Spacing="10">
+                <Label Text=" Name:"/>
+                <Entry />
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame>
+            <HorizontalStackLayout Spacing="10">
+                <Label Text=" Email:"/>
+                <Entry />
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame>
+            <HorizontalStackLayout Spacing="10">
+                <Label Text=" Adress:"/>
+                <Entry />
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame>
+            <HorizontalStackLayout Spacing="10">
+                <Label Text=" Phone:"/>
+                <Entry />
+            </HorizontalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+    
+
+</ContentPage>
